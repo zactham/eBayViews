@@ -8,11 +8,11 @@ from bs4 import BeautifulSoup
 
 class logger:
         
-        #Delete this if it isnt being used
-        def __init__(self):
-                self.string = '[{}]\033[3{}m {}\033[0m'
-                os.environ['NY'] = 'EST+05EDT,M4.1.0,M10.5.0'
-                time.tzset()
+      
+    def __init__(self):
+            self.string = '[{}]\033[3{}m {}\033[0m'
+            os.environ['NY'] = 'EST+05EDT,M4.1.0,M10.5.0'
+            time.tzset()
 
 
 
@@ -28,13 +28,14 @@ def viewEbaySite (url):
         
 
         
-
+#INPUT
 session = requests.session()
 url = str(raw_input('\033[95m' + "What is the url of the item? :"))
 viewsAmount = input('\033[94m' + "How many views would you like (I reccommend 100 at a time) :")
 
+#Adds the views
 def addViews () :
-    viewCounter = -30
+    viewCounter = -30 #Counter is slight off modify based on internet speed
     while (viewCounter < viewsAmount):
         t = Thread(target = lambda: viewEbaySite(url))
         t.start()
@@ -46,16 +47,3 @@ def addViews () :
 #MAIN
 
 addViews()
-
-
-#time.sleep(1)
-
-
-        
-
-
-    
-   
-
-
-
